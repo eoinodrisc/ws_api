@@ -18,4 +18,4 @@ To get started:
 
 * Api endpoint for an attendee is available at http://localhost:3000/api/v1/attendees/:id
 
-* You can pass intereret parameter to http://localhost:3000/api/v1/attendees in order to return results interleaved with interest and ordered by importance
+* You can pass interest parameter to http://localhost:3000/api/v1/attendees in order to return results interleaved with interest and ordered by importance
