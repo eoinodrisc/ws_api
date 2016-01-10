@@ -10,7 +10,9 @@ class Attendee < ActiveRecord::Base
 	end
 
 	def self.without_interest title
-		self.select{|a| !a.interests.pluck(:title).include? title}
+		Rails.cache.fetch("#{title}/without_interest") do
+			self.select{|a| !a.interests.pluck(:title).include? title}
+		end
 	end
 end
 
