@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  username: eoinodriscoll
+  database: websummit-development
+
+test:
+  <<: *default
+  database: websummit-test
+
+production:
+  <<: *default
+  database: websummit-production
