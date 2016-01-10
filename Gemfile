@@ -5,14 +5,25 @@ gem 'grape'
 gem 'thin'
 gem 'pg'
 gem 'smarter_csv'
-gem 'awesome_print'
 gem 'grape-entity'
 gem 'grape-kaminari'
 gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
+	gem 'awesome_print'
 	gem 'spring'
 	gem 'pry'
+  gem 'rails_best_practices'
+end
+
+group :test do
+  gem 'rspec-rails'
+	gem 'faker'
+  gem 'shoulda-matchers', require: false
+  gem 'fabrication'
+  gem 'json-schema'
+  gem 'database_cleaner'
+  gem 'pry'
 end
 
 

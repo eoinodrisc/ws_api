@@ -2,8 +2,6 @@ class Attendee < ActiveRecord::Base
 	has_many :attendee_interests
 	has_many :interests, through: :attendee_interests
 
-	accepts_nested_attributes_for :interests
-
 	default_scope  { order("importance ASC")}
 	scope :by_interest, -> (title) {joins(:interests).where("interests.title = ?", title)}
 
@@ -11,4 +9,8 @@ class Attendee < ActiveRecord::Base
 		"#{first_name} #{last_name}"
 	end
 
+	def self.without_interest title
+		self.select{|a| !a.interests.pluck(:title).include? title}
+	end
 end
+

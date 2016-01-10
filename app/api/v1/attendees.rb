@@ -13,12 +13,14 @@ module V1
 
       get do
         if Interest.pluck(:title).include?(params[:interest])
-          attendees = Attendee.by_interest(params[:interest])
-          present paginate(attendees), with: V1::Entities::Attendee::Index
+          interested_attendees = Attendee.by_interest(params[:interest])
+          uninterested_attendees = Attendee.without_interest(params[:interest])
+          attendees = uninterested_attendees.zip(interested_attendees).flatten
+
+          present paginate(Kaminari.paginate_array(attendees)), with: V1::Entities::Attendee::Index
         else
           present paginate(Attendee.all), with: V1::Entities::Attendee::Index
         end
-
       end
 
       route_param :id do

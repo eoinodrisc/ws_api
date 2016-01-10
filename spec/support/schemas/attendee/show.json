@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties" : {
+    "id" : {"type" : "integer"},
+    "full_name" : {"type" : "string"},
+    "title" : {"type" : "string"},
+    "company" : {"type" : "string"},
+    "country" : {"type" : "string"},
+    "image_url" : {"type" : "string"},
+    "bio" : {"type" : "string"},
+    "interests": {"type" : "array", "items": { "$ref": "../interest/index.json" } }
+  }
+}
