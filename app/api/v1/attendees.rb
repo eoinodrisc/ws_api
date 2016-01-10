@@ -8,11 +8,11 @@ module V1
       end
 
       params do
-        requires :interest, type: String, desc: "Optional paramater to order list by interests"
+        optional :interest, type: String, desc: "Optional paramater to order list by interests"
       end
 
       get do
-        if Interest.pluck(:title).include?(params[:interest])
+        if params.has_key?(:interest) && Interest.pluck(:title).include?(params[:interest])
           interested_attendees = Attendee.by_interest(params[:interest])
           uninterested_attendees = Attendee.without_interest(params[:interest])
           attendees = uninterested_attendees.zip(interested_attendees).flatten
