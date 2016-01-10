@@ -19,7 +19,7 @@ end
 group :test do
   gem 'rspec-rails'
 	gem 'faker'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', "~> 2.8.0"
   gem 'fabrication'
   gem 'json-schema'
   gem 'database_cleaner'

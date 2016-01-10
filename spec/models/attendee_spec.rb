@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Attendee do
+  it { is_expected.to have_many(:attendee_interests)}
+  it { is_expected.to have_many(:interests).through(:attendee_interests)}
+
+
 	let(:interest) {Fabricate(:interest, title: "Fintech")}
 	let(:attendee1) {Fabricate(:attendee)}
 	let(:attendee2) {Fabricate(:attendee)}
