@@ -10,10 +10,9 @@ gem 'grape-kaminari'
 gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
-	gem 'awesome_print'
 	gem 'spring'
-	gem 'pry'
   gem 'rails_best_practices'
+  gem 'bullet'
 end
 
 group :test do
@@ -23,7 +22,11 @@ group :test do
   gem 'fabrication'
   gem 'json-schema'
   gem 'database_cleaner'
+end
+
+group :test, :development do
   gem 'pry'
+  gem 'awesome_print'
 end
 
 

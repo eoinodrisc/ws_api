@@ -27,7 +27,7 @@ module WebsummitApi
     config.active_record.raise_in_transactional_callbacks = true
     config.paths.add 'app/api', glob: '**/*.rb'
     config.autoload_paths += %W(#{config.root}/app/api/*)
-    
+
     config.middleware.use Rack::Cors do
         allow do
           origins '*'
