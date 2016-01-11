@@ -4,7 +4,7 @@ class Attendee < ActiveRecord::Base
 
 	default_scope  { order("importance ASC")}
 	scope :by_interest, -> (title) {joins(:interests).where("interests.title = ?", title)}
-	scope :without_selected_attendees, -> (attendees) {where('id NOT IN (?)', attendees.map(&:id))}
+	scope :without_selected_attendees, -> (attendees) {where.not(id: attendees.map(&:id))}
 
 	def full_name
 		"#{first_name} #{last_name}"

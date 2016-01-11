@@ -6,6 +6,8 @@ To get started:
 
 * Clone this api project and also the ui project at https://github.com/eoinodrisc/ws_ui
 
+* Works with ruby 2.2.3
+
 * Ensure Postgres is intalled
 
 * Postgres creates database tables with user eoinodriscoll

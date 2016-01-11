@@ -13,7 +13,7 @@ module V1
 
       get do
         if params.has_key?(:interest) && Interest.find_by_title(params[:interest])
-          attendees = Attendee.interleave_attendees(params[:interest])
+          attendees = Attendee.interleave_attendees(params[:interest]).to_a
           present paginate(Kaminari.paginate_array(attendees)), with: V1::Entities::Attendee::Index
         else
           present paginate(Attendee.all.includes(:interests)), with: V1::Entities::Attendee::Index
