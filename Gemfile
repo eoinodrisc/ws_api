@@ -5,9 +5,10 @@ gem 'grape'
 gem 'thin'
 gem 'pg'
 gem 'smarter_csv'
-gem 'grape-entity'
+gem 'grape-entity', "~> 0.4.0"
 gem 'grape-kaminari'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'grape-swagger', git: "https://github.com/tim-vandecasteele/grape-swagger"
 
 group :development do
 	gem 'spring'

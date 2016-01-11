@@ -19,3 +19,5 @@ To get started:
 * Api endpoint for an attendee is available at http://localhost:3000/api/v1/attendees/:id
 
 * You can pass interest parameter to http://localhost:3000/api/v1/attendees in order to return results interleaved with interest and ordered by importance
+
+* Api docs available using grape swagger at http://localhost:3000/api/v1/docs/attendees - given time these could be provided in a user friendly format
