@@ -19,7 +19,7 @@ module V1
 
           present paginate(Kaminari.paginate_array(attendees)), with: V1::Entities::Attendee::Index
         else
-          present paginate(Attendee.all), with: V1::Entities::Attendee::Index
+          present paginate(Attendee.all.includes(:interests)), with: V1::Entities::Attendee::Index
         end
       end
 

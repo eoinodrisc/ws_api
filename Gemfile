@@ -12,7 +12,6 @@ gem 'rack-cors', :require => 'rack/cors'
 group :development do
 	gem 'spring'
   gem 'rails_best_practices'
-  gem 'bullet'
 end
 
 group :test do
