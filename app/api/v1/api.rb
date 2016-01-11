@@ -6,7 +6,6 @@ module V1
 
 		mount Attendees
 		mount Interests
-
 		add_swagger_documentation :format => :json,
 															:api_version => 'v1',
 															:base_path => "http://localhost:3000",
