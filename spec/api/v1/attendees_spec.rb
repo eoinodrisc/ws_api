@@ -6,13 +6,13 @@ describe V1::Attendees do
   let(:film) {Fabricate(:interest, title: "Film")}
   let(:fashion) {Fabricate(:interest, title: "Fashion")}
 
-  let(:attendee) {Fabricate(:attendee, importance: 1)}  
+  let(:attendee) {Fabricate(:attendee, importance: 1)}
   let(:attendee1) {Fabricate(:attendee, importance: 2, interests: [film])}
   let(:attendee2) {Fabricate(:attendee, importance: 3, interests: [fintech])}
-  let(:attendee3) {Fabricate(:attendee, importance: 4, interests: [fintech])} 
-  let(:attendee4) {Fabricate(:attendee, importance: 5)}  
+  let(:attendee3) {Fabricate(:attendee, importance: 4, interests: [fintech])}
+  let(:attendee4) {Fabricate(:attendee, importance: 5)}
 
-  describe "Get Interests" do 
+  describe "Get Interests" do
     before do
       attendee
     end
@@ -31,6 +31,10 @@ describe V1::Attendees do
       before do
         film
         fashion
+        attendee1
+        attendee2
+        attendee3
+        attendee4
       end
 
       it "succeeds" do
@@ -38,14 +42,14 @@ describe V1::Attendees do
         expect(response).to be_success
       end
 
-      it "should return all both attendees" do
+      it "should return all attendees" do
         get '/api/v1/attendees', interest: fintech.title
-        expect(JSON.parse(response.body).length).to eq 2
+        expect(JSON.parse(response.body).length).to eq 5
       end
     end
   end
 
-  describe "Show Interest" do 
+  describe "Show Interest" do
     it "succeeds" do
       get "/api/v1/attendees/#{attendee.id}", id: attendee.id
       expect(response).to be_success

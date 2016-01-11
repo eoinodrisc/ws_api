@@ -25,14 +25,15 @@ describe Attendee do
     end
 
     describe "#by_interest scope" do
-    	it "should return attendee interested in the interest" do
+    	it "should return attendees interested in the interest" do
   	  	expect(Attendee.by_interest("Sports").length).to eq 2
   	  end
     end
 
-    describe "#without_interest scope" do
-      it "should return attendee interested in the interest" do
-        expect(Attendee.without_interest("Sports").length).to eq 1
+    describe "#without_selected_attendees scope" do
+      it "should return attendees not inclucing those passed to scope" do
+        attendees = [attendee1]
+        expect(Attendee.without_selected_attendees(attendees).length).to eq 2
       end
     end
   end

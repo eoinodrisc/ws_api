@@ -12,11 +12,8 @@ module V1
       end
 
       get do
-        if params.has_key?(:interest) && Interest.pluck(:title).include?(params[:interest])
-          interested_attendees = Attendee.by_interest(params[:interest])
-          uninterested_attendees = Attendee.without_interest(params[:interest])
-          attendees = uninterested_attendees.zip(interested_attendees).flatten
-
+        if params.has_key?(:interest) && Interest.find_by_title(params[:interest])
+          attendees = Attendee.interleave_attendees(params[:interest])
           present paginate(Kaminari.paginate_array(attendees)), with: V1::Entities::Attendee::Index
         else
           present paginate(Attendee.all.includes(:interests)), with: V1::Entities::Attendee::Index
